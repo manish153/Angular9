@@ -1,0 +1,12 @@
+--build docker image
+docker build -t angular-app .
+
+--run the docker image in the container
+docker run -d -it -p 80:80/tcp --name angular-app angular-app:latest
+
+--get the docker container CONTAINER_ID
+docker ps
+
+--get the docker conyainer ip 
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' CONTAINER_ID
+
